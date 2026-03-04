@@ -1,0 +1,8 @@
+﻿@model List<Accomodation>
+@{
+    ViewData["Title"] = "Smještaj";
+}
+<h2>Smještajne jedinice</h2>
+<div id="accomodation-table-container">
+    @Html.Partial("_IndexTable", Model)
+</div>

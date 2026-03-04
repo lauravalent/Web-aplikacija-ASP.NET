@@ -1,0 +1,42 @@
+﻿@model Reservation
+
+@{
+	ViewData["Title"] = "Dodavanje nove rezervacije";
+}
+
+
+
+<nav aria-label="breadcrumb">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a asp-action="Index">Popis rezervacija</a></li>
+		<li class="breadcrumb-item active" aria-current="page">Nova rezervacija</li>
+	</ol>
+</nav>
+
+<div class="row">
+	<div class="col-md-4">
+		<form asp-controller="Reservation" asp-action="Create">
+			<partial name="_CreateEdit" />
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script id="search-js"
+            defer
+            src="https://api.mapbox.com/search-js/v1.0.0-beta.22/web.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.hr.min.js"></script>
+    <script>
+        $(function () {
+            $('.inp-datepicker').datepicker({
+                format: $('.inp-datepicker').data('format'),
+                autoclose: true,
+                todayHighlight: true,
+                language: 'hr'
+            });
+        });
+    </script>
+}

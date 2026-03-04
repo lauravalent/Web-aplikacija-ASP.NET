@@ -1,0 +1,45 @@
+﻿@model Rad.Model.Reservation
+@using System.Globalization
+@{
+	var pattern = System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern.ToLower();
+	pattern = pattern.Replace("DD", "D").Replace("D", "DD");
+	pattern = pattern.Replace("MM", "M").Replace("M", "MM");
+}
+
+<input type="hidden" asp-for="AccomodationID" />
+<div class="form-group">
+	<label class="control-label">Početni datum</label>
+
+	<div class="input-group date inp-datepicker" data-format="@pattern">
+		<input type="text" class="form-control" asp-for="StartDate" />
+		<span class="input-group-append">
+			<span class="input-group-text bg-light d-block">
+				<i class="fa fa-calendar"></i>
+			</span>
+		</span>
+	</div>
+	<span asp-validation-for="StartDate" class="text-danger"></span>
+</div>
+<div class="form-group">
+	<label class="control-label">Krajnji datum</label>
+
+	<div class="input-group date inp-datepicker" data-format="@pattern">
+		<input type="text" class="form-control" asp-for="EndDate" />
+		<span class="input-group-append">
+			<span class="input-group-text bg-light d-block">
+				<i class="fa fa-calendar"></i>
+			</span>
+		</span>
+	</div>
+	<span asp-validation-for="EndDate" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+	<label class="control-label">Broj gostiju</label>
+	<input type="number" class="form-control" asp-for="NumberOfGuests" min="1" />
+	<span asp-validation-for="NumberOfGuests" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+	<input type="submit" value="Spremi" class="btn btn-outline-success" />
+</div>

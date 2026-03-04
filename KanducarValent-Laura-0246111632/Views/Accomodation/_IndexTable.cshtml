@@ -1,0 +1,39 @@
+﻿<div class="container mt-5">
+    <p class="alert-light">
+        Istražite svoju okolinu u popisu smještaja koji mogu postati vaš dom preko vikenda!
+    </p>
+
+    <h2 class="mb-4 text-center">Popis smještaja</h2>
+
+    <div class="table-responsive">
+        <table class="table table-info table-hover table-bordered align-middle">
+            <thead class="table-success">
+                <tr class="text-center">
+                    <th>Slika</th>
+                    <th>Naziv</th>
+                    <th>Kapacitet</th>
+                    <th>Površina (m²)</th>
+                    <th>Grad</th>
+                    <th>Cijena po noćenju</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            <a asp-action="Details" asp-route-id="@item.ID">
+                                <img src="@item.ImageUrl" alt="Accomodation image" class="img-fluid rounded shadow w-50" style="max-width: 100%; height: auto;" />
+                            </a>
+                        </td>
+                        <td>@item.Name</td>
+                        <td class="text-center">@item.Capacity</td>
+                        <td class="text-center">@item.Size</td>
+                        <td>@item.City?.Name</td>
+                        <td>@item.PricePerNight</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

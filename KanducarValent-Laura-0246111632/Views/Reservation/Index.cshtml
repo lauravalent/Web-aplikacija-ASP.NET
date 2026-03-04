@@ -1,0 +1,9 @@
+﻿@model List<Reservation>
+@{
+    ViewData["Title"] = "Rezervacije";
+}
+<h2>Rezervacije</h2>
+
+<div id="reservations-table-container">
+    @Html.Partial("_IndexTable", Model)
+</div>

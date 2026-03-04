@@ -1,0 +1,22 @@
+﻿@model Accomodation
+
+@{
+	ViewData["Title"] = "Dodavanje novog smještaja";
+}
+
+
+
+<nav aria-label="breadcrumb">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a asp-action="Index">Popis smještaja</a></li>
+		<li class="breadcrumb-item active" aria-current="page">Novi smještaj</li>
+	</ol>
+</nav>
+
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="Create">
+			<partial name="_CreateEdit" />
+		</form>
+	</div>
+</div>

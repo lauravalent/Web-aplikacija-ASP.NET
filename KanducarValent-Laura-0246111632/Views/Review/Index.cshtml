@@ -1,0 +1,15 @@
+﻿@model List<Rad.Model.Review>
+
+@{
+    ViewData["Title"] = "Moje recenzije";
+}
+<div class="container">
+    <div id="reservations-table-container">
+        @Html.Partial("_IndexTable", Model)
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-success" asp-action="Create">Dodaj novu recenziju</a>
+        </div>
+    </div>
+</div>

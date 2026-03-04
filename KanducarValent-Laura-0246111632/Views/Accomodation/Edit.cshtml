@@ -1,0 +1,26 @@
+﻿@model Rad.Model.Accomodation
+
+@{
+    ViewData["Title"] = "Uređivanje smještaja";
+}
+
+
+<head>
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+</head>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index">Popis smještaja</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Uređivanje smještaja</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="ID" />
+            <partial name="_CreateEdit" />
+        </form>
+    </div>
+</div>

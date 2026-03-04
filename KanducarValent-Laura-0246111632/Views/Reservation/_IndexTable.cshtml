@@ -1,0 +1,37 @@
+﻿@model List<Reservation>
+<head>
+	<link rel="stylesheet" href="~/css/style.css">
+</head>
+<div class="container mt-5">
+	<h2 class="mb-4 text-center">Popis Vaših rezervacija</h2>
+	<div class="table-responsive">
+	<table style="margin-top: 20px;" class="table table-info table-hover table-bordered align-middle">
+		<thead class="table-success">
+			<tr class="text-center">
+				<th>Naziv smještaja</th>
+				<th>Početak</th>
+				<th>Kraj</th>
+				<th>Broj gostiju</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.Accomodation?.Name</td>
+					<td>@item.StartDate.ToShortDateString()</td>
+					<td>@item.EndDate.ToShortDateString()</td>
+					<td>@item.NumberOfGuests</td>
+					<td>
+						<a asp-action="Edit" asp-route-id="@item.ID">[edit]</a>
+							<a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger btn-sm">
+								Obriši
+							</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+	</div>
+</div>
+

@@ -1,0 +1,15 @@
+﻿@using System.Globalization
+@{
+    var totalStr = TempData["ReservationTotal"] as string;
+    var daysStr = TempData["ReservationDays"] as string;
+
+    decimal total = totalStr != null ? decimal.Parse(totalStr, CultureInfo.InvariantCulture) : 0;
+    int days = daysStr != null ? int.Parse(daysStr) : 0;
+}
+
+@if (total > 0 && days > 0)
+{
+    <div class="alert alert-success">
+        Rezervacija uspješna! Boravit ćete @days noći. Ukupna cijena: <strong>@total EUR</strong>.
+    </div>
+}

@@ -1,0 +1,22 @@
+﻿@model Review
+
+@{
+	ViewData["Title"] = "Dodavanje novog klijenta";
+}
+
+
+
+<nav aria-label="breadcrumb">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a asp-action="Index">Popis recenzija</a></li>
+		<li class="breadcrumb-item active" aria-current="page">Novi recenzija</li>
+	</ol>
+</nav>
+
+<div class="row">
+	<div class="col-md-4">
+		<form asp-controller="Review" asp-action="Create">
+			<partial name="_CreateEdit" />
+		</form>
+	</div>
+</div>

@@ -1,0 +1,30 @@
+﻿@model List<Review>
+
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Popis Vaših recenzija</h2>
+    <div class="table-responsive">
+    <table class="table table-info table-hover table-bordered align-middle">
+        <thead class="table-success">
+            <tr class="text-center">
+                <th>Smještaj</th>
+                <th>Ocjena</th>
+                <th>Tekst</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var review in Model)
+            {
+                <tr>
+                    <td>@review.Accomodation?.Name</td>
+                    <td>@review.Rating</td>
+                    <td>@review.Content</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@review.ID">[edit]</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
+</div>
